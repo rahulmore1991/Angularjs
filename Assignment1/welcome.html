@@ -4,9 +4,72 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="welcomecss.css">
+	<script type="text/javascript" src="/home/rahul/MMM/Assignments/Git/Angularjs/Assignment1/script.js"></script>
 </head>
 <body>
-	Welcome 
+	<div class="heading">
+		<div class="logo">
+		<img src="logo.png" alt="logo" width="65" height="35">
+		</div>
+			
+		<div class="welcomeuser">
+		Welcome <small></small> !
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!-- <div class="productsection">
+		<form id="welcomeform">
+			<div class="productrow">
+				<div class="productname">
+					<b>Product Name</b>
+				</div>
+				<div class="editdeleteaction">
+					<b>Action</b>
+				</div>
+			</div>
+			<div class="productrow">
+				<div class="productname">
+					<b>Product1</b>
+				</div>
+				<div class="editdeleteaction">
+					<div class="editaction">
+					<a>Edit</a>
+					</div>
+					<div class="deleteaction">
+					<a>Delete</a>
+					</div>
+				</div>
+			</div>
+	
+		</form>
+	</div> -->
+
+
+
+	<table class="productTbl">
+		<tr>
+			<th class="name">Product Name</th>
+			<th class="action">Action</th>
+		</tr>
+		<tr>
+			<td class="name">Product1</td>
+			<td class="action">Edit</td>
+		</tr>
+		<tr>
+			<td class="name">Product2</td>
+			<td class="action">Edit</td>
+		</tr>
+		<tr>
+			<td class="name">Product3</td>
+			<td class="action">Edit</td>
+		</tr>
+	</table>
+
 </body>
+
+<script>
+	//alert(userData.username);
+	document.getElementsByTagName('small')[0].innerHTML = userData.username;
+</script>
 </html>

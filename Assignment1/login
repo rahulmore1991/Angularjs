@@ -5,6 +5,7 @@ This is Login Page
 </title>
     
 <link rel="stylesheet" type="text/css" href="mystyle.css">
+<script type="text/javascript" src="/home/rahul/MMM/Assignments/Git/Angularjs/Assignment1/script.js"></script>
 </head>
 <body>
 
@@ -36,23 +37,6 @@ This is Login Page
             </div>
        </form> 
     </div>
-
-    <script>
-        
-    function login(){
-        var uname = document.form.username.value;
-        var password = document.form.password.value;
-        var userData = JSON.parse(localStorage.getItem('userinfo'));
-        if( password == userData.password && uname == userData.username){
-            //window.path('file:///home/rahul/MMM/Login/welcome.html');
-            window.location.href = 'welcome.html';
-            return false;
-            //window.location.assign('file:///home/rahul/MMM/Login/welcome.html');
-        }else{
-            alert("Please enter valid username and password"); 
-        }
-    }
-    </script>
 
 </body>
 </html>
