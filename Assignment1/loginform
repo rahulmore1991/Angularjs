@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>
+This is login form.
+</title>
+<link rel="stylesheet" type="text/css" href="loginform1.css">
+
+
+
+<script>  
+function validate(){  
+var name=document.f1.firstname.value;
+var lname=document.f1.lastname.value;
+var dob=document.f1.dateofbirth.value;
+var num=document.f1.mobilenumber.value;
+var aadharnumber=document.f1.aadharnumber.value;
+var uname=document.f1.username.value;
+var password=document.f1.password.value;
+var status=false;
+
+var userinfo ={
+    "name":name,
+    "lastname":lname,
+    "dateofbirth":dob,
+    "mnumber":num,
+    "aadharnumber":aadharnumber,
+    "username":uname,
+    "password":password
+
+}
+localStorage.setItem("userinfo", JSON.stringify(userinfo));
+/*localStorage.setItem("firstname", name);
+localStorage.setItem("lastname", lname);
+localStorage.setItem("dateofbirth", dob);
+localStorage.setItem("mobilenumber", num);
+localStorage.setItem("aadharnumber", aadharnumber);
+localStorage.setItem("username", uname);
+localStorage.setItem("password", password);*/
+
+if(name.length<1){  
+document.getElementById("nameloc").innerHTML= "Please Enter Valid First Name";  
+status=false;  
+} 
+
+if (isNaN(num)){
+	document.getElementById("mobileloc").innerHTML="Enter Numbers only";
+  status= false;
+}
+else if (num.length!=10){
+  document.getElementById("mobileloc").innerHTML="Enter 10 Digit Mobile Number only";
+  status= false;
+}
+return status;
+}
+ 
+</script>
+
+
+</head>
+<body>
+<div id="form-details" class="formsection">
+    <form name="f1" action="#" onsubmit="return validate()">
+            <h2 class="heading">Personal Details</h2>
+
+            <div class="FormLabel">
+                <div>
+                    <label>First Name</label> 
+                </div>
+                <div>
+                    <label>Last Name</label> 
+                </div>
+                <div>
+                    <label>Date of Birth</label> 
+                </div>
+                <div>
+                    <label>Mobile Number</label> 
+                </div>
+                <div>
+                    <label>Aadhar Number</label> 
+                </div>
+                <div>
+                    <label>User Name</label> 
+                </div>
+                <div>
+                    <label>Password</label> 
+                </div>
+            </div>
+            <div class="FormData">
+                <div>
+                    <input type="text" id="firstname" placeholder="firstname" />
+                    <span id="nameloc"></span>
+                </div> 
+                <div>
+                    <input type="text" id="lastname" placeholder="lastname" />
+                </div> 
+                <div>
+                    <input type="text" id="dateofbirth" placeholder="dateofbirth" />
+                </div>
+                <div>
+                    <input type="text" id="mobilenumber" placeholder="mobilenumber" />
+                    <span id="mobileloc"></span>
+                </div> 
+                <div>
+                    <input type="text" id="aadharnumber" placeholder="aadharnumber" />
+                </div>
+                <div>
+                    <input type="text" id="username" placeholder="username" />
+                </div>
+                <div>
+                    <input type="password" id="password" placeholder="password" />
+                </div>
+            </div>
+            <div align="center">
+                <button id="submitbutton" type="submit">Submit</button>
+            </div>                               
+                                        
+    </form>
+</div>
+
+        <!--<div class="FormRow">
+                     <div class="FormLabel">
+                            <label>First Name</label> 
+                        </div>
+                        <div class="FormData">
+                            <input type="text" id="firstname" placeholder="firstname" />
+                            <span id="nameloc"></span>
+                        </div> 
+                        <div class="clear"></div>
+        </div>
+
+
+
+        <div class="FormRow">
+                        <div class="FormLabel">
+                            <label>Last Name</label> 
+                        </div>
+                        <div class="FormData">
+                            <input type="text" id="lastname" placeholder="lastname" />
+                        </div> 
+                        <div class="clear"></div>
+        </div>
+
+        <div class="FormRow">
+                        <div class="FormLabel">
+                            <label>Date of Birth</label> 
+                        </div>
+                        <div class="FormData">
+                            <input type="text" id="dateofbirth" placeholder="dateofbirth" />
+                        </div> 
+                        <div class="clear"></div>
+        </div>
+
+        <div class="FormRow">
+                        <div class="FormLabel">
+                            <label>Aadhar Number</label> 
+                        </div>
+                        <div class="FormData">
+                            <input type="text" id="aadharnumber" placeholder="aadharnumber" />
+                        </div> 
+                        <div class="clear"></div>
+        </div>
+
+        <div class="FormRow">
+                        <div class="FormLabel">
+                            <label>Mobile Number</label> 
+                        </div>
+                        <div class="FormData">
+                            <input type="text" id="mobilenumber" placeholder="mobilenumber" />
+                            <span id="mobileloc"></span>
+                        </div> 
+                        <div class="clear"></div>
+        </div>
+
+        <div align="center">
+                        <button id="submitbutton" type="submit">Submit</button>
+                    </div>
+                     
+
+
+         <div>-->
+        
+
+
+</body>
+</html>

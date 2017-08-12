@@ -1,0 +1,56 @@
+.formsection{
+	width: 50%;
+    border: 1px solid #000;
+    margin: 10% auto;
+     overflow: hidden;
+}
+
+   
+
+
+
+.heading{
+	text-align: center;
+}
+.FormLabel{
+	width: 40%;
+	float: left;
+}
+.FormLabel label{
+	padding-left: 45%;
+	height: 45px;
+	display: inline-block
+}
+
+.FormData{
+	width: 60%;
+	float: right;
+	/*margin-bottom: 30px;*/
+}
+
+.clear{
+	clear: both;
+}
+
+
+
+
+/*.FormLabel label{
+	padding-left: 20px;
+}*/
+.FormData input{
+	width: 60%;
+    line-height: 20px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+.FormRow{
+	padding: 10px 0px;
+}
+.formsection button{
+	background-color: #00BCD4;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+}
