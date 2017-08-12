@@ -1,0 +1,52 @@
+.heading{
+
+}
+.logo{
+	width: 50%;
+	float: left;
+}
+.welcomeuser{
+	width: 50%;
+	float: left;
+	    text-align: right;
+}
+.productsection{
+	width: 400px;
+    border: 1px solid #000;
+    margin: 10% auto;
+
+}
+.productrow{
+	padding: 10px 0px;
+}
+.productname{
+	width: 50%;
+	float: left;
+}
+.editdeleteaction{
+	width: 50%;
+	float: left;	
+}
+.editaction{
+
+}
+.deleteaction{
+
+}
+.clear{
+	clear: both;
+}
+.productTbl{ 
+	width: 93%;
+    border: 1px solid #000;
+    padding: 54px;
+    margin: 61px;
+}
+.productTbl .name{
+	width: 80%;
+}
+.productTbl .action{
+	width: 20%;
+}
+.productTbl tr td{ text-align: left; }
+.productTbl tr th{ text-align: left; }
