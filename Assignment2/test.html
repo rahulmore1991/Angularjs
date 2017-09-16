@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+
+<p><a href="#">TestAngular</a></p>
+
+<a  ng-click="$root.redirectTo('Welcome')">Welcome</a>
+
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "TestAngular.html",
+        controller: 'test'
+    })
+    .when("/Welcome", {
+        templateUrl : "./Welcome.html",
+        controller: 'welcome'
+    });
+
+
+});
+app.controller('test', function($scope,$location,$rootScope){
+  $rootScope.redirectTo = function(state){
+    $location.path('/'+state);
+  }
+});
+
+app.controller('welcome', function($scope,$location,$rootScope){
+	$rootScope.redirectTo = function(state){
+    $location.path('/'+state);
+  }
+});
+</script>
+
+<p>Click on the links to navigate to "red.htm", "green.htm", "blue.htm", or back to "main.htm"</p>
+</body>
+</html>

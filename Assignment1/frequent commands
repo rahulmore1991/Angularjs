@@ -1,0 +1,6 @@
+git status
+git clone https://github.com/rahulmore1991/Angularjs.git
+git commit -a -m "Login and signup demo"
+git push
+git pull
+

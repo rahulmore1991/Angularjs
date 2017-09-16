@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>
+This is Login Page
+</title>
+    
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<script type="text/javascript" src="/home/rahul/MMM/Assignments/Git/Angularjs/Assignment1/Bootstrapscript.js"></script>
+</head>
+<body>
+
+    <div id="form-wrapper" class="loginSection">
+        <form name="form"  onsubmit="return login()">
+            <h2 class="txtCenter">Login</h2>
+            <div class="loginRow">
+                <div class="loginLabel">
+                    <label>User Name</label> 
+                </div>
+                <div class="inputData">
+                    <input type="text" id="username" placeholder="username" />
+                </div> 
+                <div class="clear"></div>
+            </div>
+            
+            <div class="loginRow">
+                <div class="loginLabel">
+                   <label>Password</label>
+                </div>
+                <div class="inputData">
+                   <input type="password" id="password" placeholder="password" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div align="center">
+                <button id="submitbutton" type="submit">Submit</button>
+            </div>
+       </form> 
+    </div>
+
+</body>
+</html>
+
