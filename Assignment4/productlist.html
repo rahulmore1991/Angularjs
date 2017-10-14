@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="MyController">
+<div class="container">
+	<div class="headingAddRow">
+        <div class="heading">
+ 			 <h2>Product List</h2>    
+ 		 </div> 
+  		<div class="addProductRow">
+  			<input type="button" value="Add" class="btn btn-primary" ng-click="addRow()"/>   
+  		</div>
+  </div>  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Prize</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in product">
+        <td>{{item.prodName}}</td>
+        <td>{{item.prodPrize}}</td>
+        <td><input type="button" value="Delete" class="btn btn-primary" ng-click="removeRow(item.prodId)"/>
+			<input type="button" value="Edit" class="btn btn-primary" ng-click="editRow(item)"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Product</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <p>{{selecttedProduct}}</p> -->
+        <div>
+		Product Name: <input type="text" ng-model="selecttedProduct.prodName" placeholder={{selecttedProduct.prodName}}>
+		</div>
+		<div>
+		Product Prize: <input type="text" ng-model="selecttedProduct.prodPrize" placeholder={{selecttedProduct.prodPrize}}>
+		</div>
+      </div>
+      <div class="modal-footer">
+     	 <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+     	 <!-- <input type="submit" ng-model="selecttedProduct" value="Save" /> -->
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Add product Model -->
+
+<div id="addProductModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Product</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <p>{{selecttedProduct}}</p> -->
+        <div>
+		Product Name: <input type="text" ng-model="newProduct.prodName" placeholder="Add new product name">
+		</div>
+		<div>
+		Product Prize: <input type="text" ng-model="newProduct.prodPrize" placeholder="Add new product value">
+		</div>
+      </div>
+      <div class="modal-footer">
+     	 <button type="button" class="btn btn-primary" ng-click="saveAddRow(newProduct)">Save</button>
+     	 <!-- <input type="submit" ng-model="selecttedProduct" value="Save" /> -->
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('MyController', function($scope) {
+  $scope.product = [{
+  	prodId:101,
+    prodName: "abc",
+    prodPrize: 120
+  },
+  {
+  	prodId:102,
+    prodName: "pqr",
+    prodPrize: 120
+  },
+  {
+  	prodId:103,
+    prodName: "xyz",
+    prodPrize: 120
+  },
+  {
+  	prodId:104,
+    prodName: "mno",
+    prodPrize: 120
+  },
+  {
+  	prodId:105,
+    prodName: "efg",
+    prodPrize: 120
+  }];
+
+  /*Added function to delete the Product*/
+  $scope.removeRow = function(productId){					
+		var prodArr = eval( $scope.product );
+		for( var i = 0; i < prodArr.length; i++ ) {
+			if( prodArr[i].prodId === productId ) {
+				$scope.product.splice( i, 1 );	
+				break;
+			}
+		}
+		/*if( index === -1 ) {
+			alert( "Something gone wrong" );
+		}*/
+			
+	};
+	 /*Added function to edit the Product*/
+	$scope.editRow = function(product){				
+		var index = -1;		
+		var prodArr = eval( $scope.product);
+		$scope.selecttedProduct=angular.copy(product);
+		$('#myModal').modal('show') 
+		// for( var i = 0; i < prodArr.length; i++ ) {
+		// 	if( prodArr[i].prodId === productId ) {
+				
+		// 	}
+		// }
+		// if( index === -1 ) {
+		// 	alert( "Something gone wrong" );
+		// }
+				
+	};
+	$scope.save = function(){				
+		var index = -1;		
+		var prodArr = eval( $scope.product);
+		// $scope.selecttedProduct=product;
+		 $('#myModal').modal('hide') 
+		for( var i = 0; i < prodArr.length; i++ ) {
+			if( prodArr[i].prodId === $scope.selecttedProduct.prodId ) {
+				prodArr[i]= $scope.selecttedProduct;
+				break;
+			}
+		 }
+		// if( index === -1 ) {
+		// 	alert( "Something gone wrong" );
+		// }
+				
+	};
+
+	$scope.addRow = function(){				
+		//var index = -1;		
+		//var prodArr = eval( $scope.product);
+		//$scope.newAddedProduct=angular.copy(newProduct);
+		$('#addProductModal').modal('show') 
+		
+				
+	};
+
+	$scope.saveAddRow = function(newProduct){				
+		var index = -1;		
+		var prodArr = eval( $scope.product);
+		var i=prodArr.length;
+		// $scope.selecttedProduct=product;
+		 $('#addProductModal').modal('hide') 
+		 newProduct1=angular.copy(newProduct);
+		 console.log(newProduct1);
+		 $scope.product[i]= newProduct1;
+				
+			
+		 
+		// if( index === -1 ) {
+		// 	alert( "Something gone wrong" );
+		// }
+				
+	};
+	
+
+
+  });
+</script>
+</body>
+</html>
